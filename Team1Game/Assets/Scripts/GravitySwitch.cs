@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GravitySwitch : MonoBehaviour, IInteractable
 {
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,8 +37,8 @@ public class GravitySwitch : MonoBehaviour, IInteractable
         }
     }
 
-    public void Interact(PlayerController p)
+    public void Interact()
     {
-        p.FlipGravity();
+        PlayerController.FlipPlayers();
     }
 }
