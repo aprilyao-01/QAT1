@@ -7,6 +7,7 @@ using static System.Math;
 public class PlayerController : MonoBehaviour
 {
 
+    public int health = 3;
     public float speed = 10;
     public float jumpForce = 200;
 
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D body;
     Animator animator;
     SpriteRenderer sprite;
+
 
     public static void FlipPlayers() {
         players.ForEach( FlipGravity );
@@ -42,6 +44,16 @@ public class PlayerController : MonoBehaviour
         flipped = !flipped;
     }
     
+    public void Damage(int dmg)
+    {
+        health -= dmg;
+        if (health <= 0)
+        {
+            print("ded");
+            die();
+        }
+    }
+
     public void SetInteractable( IInteractable i )
     {
         interactable = i;
@@ -75,6 +87,10 @@ public class PlayerController : MonoBehaviour
         body.velocity = vel;
     }
 
+    protected void die()
+    {
+        
+    }
 
     // Start is called before the first frame update
     void Start()
