@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 using static System.Math;
 
 public class PlayerController : MonoBehaviour
@@ -14,6 +15,9 @@ public class PlayerController : MonoBehaviour
     public Transform groundOverlapTopLeft;
     public Transform groundOverlapBottomRight;
     public LayerMask groundLayer;
+    public GameObject gameOverUI;
+    public TextMeshProUGUI gameOverText;
+    
     public bool flipped = false;
     private bool grounded = false;
     private IInteractable interactable;
@@ -89,7 +93,12 @@ public class PlayerController : MonoBehaviour
 
     protected void die()
     {
-        
+        Time.timeScale = 0;
+
+        gameOverUI.SetActive(true);
+        gameOverText.SetText("Game Over");
+
+        Destroy(this.gameObject);
     }
 
     // Start is called before the first frame update
