@@ -46,13 +46,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9d7a96b0765cd45b296a03a531db07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 3
   speed: 10
-  jumpForce: 200
+  jumpForce: 500
   groundOverlapTopLeft: {fileID: 1576252620034887392}
   groundOverlapBottomRight: {fileID: 2545524745986401033}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  gameOverUI: {fileID: 0}
+  gameOverText: {fileID: 0}
+  gameOverButtonText: {fileID: 0}
   flipped: 0
 --- !u!114 &2429142384081216180
 MonoBehaviour:
