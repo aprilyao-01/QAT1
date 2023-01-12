@@ -208,6 +208,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overlapFront: {fileID: 174243004940085863}
   speed: 10
+  faceLeft: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &7510728831937878606
 MonoBehaviour:
   m_ObjectHideFlags: 0
