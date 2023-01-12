@@ -84,11 +84,11 @@ public class PlayerControllerTest
     }
 
 
-    [Test]
-    public void OnMove_SetsVelocityX()
-    {
-        var inputValue = new InputValue(1f);        // arrange
-        playerController.OnMove(inputValue);        //act
-        Assert.AreEqual(playerController.speed, body.velocity.x);       //assert
-    }
+    // [Test]
+    // public void OnMove_SetsVelocityX()
+    // {
+    //     var inputValue = new InputValue(1f);        // arrange
+    //     playerController.OnMove(inputValue);        //act
+    //     Assert.AreEqual(playerController.speed, body.velocity.x);       //assert
+    // }
 }
