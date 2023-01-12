@@ -356,11 +356,15 @@ Camera:
   field of view: 60
 <<<<<<< HEAD:Team1Game/Assets/Scenes/SampleScene.unity
   orthographic: 1
+<<<<<<< HEAD:Team1Game/Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity
   orthographic size: 9.444445
 =======
   orthographic: 0
   orthographic size: 100
 >>>>>>> 11-menu:Team1Game/Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity
+=======
+  orthographic size: 5.74
+>>>>>>> f35546d702cc331c211267a46d29c2537b0cc352:Team1Game/Assets/Scenes/SampleScene.unity
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
