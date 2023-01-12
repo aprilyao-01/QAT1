@@ -118,3 +118,76 @@ public class PlayerController : MonoBehaviour
 
 }
 
+//public class PlayerController
+//{
+//    private int health = 3;
+//    private float speed = 10;
+//    private float jumpForce = 200;
+
+//    private IInteractable interactable;
+//    private bool flipped = false;
+//    private bool grounded = false;
+
+//    private IPlayerMovement playerMovement;
+//    private IPlayerGravity playerGravity;
+//    private IPlayerInput playerInput;
+//    private IPlayerAnimations playerAnimations;
+//    private IPlayerHealth playerHealth;
+
+//    public PlayerController(IPlayerMovement playerMovement, IPlayerGravity playerGravity, IPlayerInput playerInput, IPlayerAnimations playerAnimations, IPlayerHealth playerHealth)
+//    {
+//        this.playerMovement = playerMovement;
+//        this.playerGravity = playerGravity;
+//        this.playerInput = playerInput;
+//        this.playerAnimations = playerAnimations;
+//        this.playerHealth = playerHealth;
+//    }
+
+//    public void Update()
+//    {
+//        playerMovement.Move();
+//        playerGravity.CheckGround();
+//        playerAnimations.Animate();
+//        playerHealth.CheckHealth();
+//    }
+
+//    public void OnJump()
+//    {
+//        playerMovement.Jump();
+//    }
+
+//    public void OnMove(InputValue input)
+//    {
+//        playerMovement.Move(input);
+//    }
+
+//    public void OnInteract()
+//    {
+//        playerInput.Interact();
+//    }
+
+//    public void Damage(int dmg)
+//    {
+//        playerHealth.Damage(dmg);
+//    }
+
+//    public void SetInteractable(IInteractable i)
+//    {
+//        playerInput.SetInteractable(i);
+//    }
+
+//    public void ClearInteractable()
+//    {
+//        playerInput.ClearInteractable();
+//    }
+
+//    public void FlipGravity()
+//    {
+//        playerGravity.Flip();
+//    }
+
+//    public static void FlipPlayers()
+//    {
+//        players.ForEach(FlipGravity);
+//    }
+//}

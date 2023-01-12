@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
-using UnityEngine.InputSystem;
 using System;
 using System.Reflection;
 
 public class PlayerControllerTest
 {
 
-    GameObject player;
-    PlayerController playerController;
+    PlayerController player;
     GravitySwitch gravitySwitch;
     Rigidbody2D body;
     Transform transform;
@@ -22,11 +20,14 @@ public class PlayerControllerTest
     public void SetUp()
     {
         Debug.Log("SetUp");
-        player = new GameObject();
-        playerController = player.AddComponent<PlayerController>();
-        body = player.AddComponent<Rigidbody2D>();
-        animator = player.AddComponent<Animator>();
-        transform = playerController.transform;
+        player = new GameObject().AddComponent<PlayerController>();
+        player.flipped = false;
+
+        //player = new GameObject();
+        //playerController = player.AddComponent<PlayerController>();
+        body = player.GetComponentInChildren<Rigidbody2D>();
+        animator = player.GetComponentInChildren<Animator>();
+        //transform = playerController.transform;
         grounded = false;
     }
 
@@ -34,13 +35,32 @@ public class PlayerControllerTest
     [TearDown]      // @AfterEach
     public void Teardown()
     {
-        var objects = GameObject.FindObjectsOfType<GameObject>();
-        foreach (var obj in objects)
-        {
-            if (obj.name.Contains("Test"))
-                GameObject.Destroy(obj);
-        }
+        GameObject.DestroyImmediate(player.gameObject);
         Debug.Log("TearDown");
+    }
+
+
+
+    [Test]
+    public void TestFlipGravity()
+    {
+        Vector3 initialScale = body.transform.localScale;
+        Vector3 initialPosition = player.transform.position;
+        float initialGravityScale = body.gravityScale;
+        float initialJumpForce = player.jumpForce;
+
+        player.FlipGravity();
+
+        Vector3 newScale = body.transform.localScale;
+        Vector3 newPosition = player.transform.position;
+        float newGravityScale = body.gravityScale;
+        float newJumpForce = player.jumpForce;
+
+        Assert.AreNotEqual(initialScale, newScale);
+        Assert.AreNotEqual(initialPosition, newPosition);
+        Assert.AreNotEqual(initialGravityScale, newGravityScale);
+        Assert.AreNotEqual(initialJumpForce, newJumpForce);
+        Assert.IsTrue(player.flipped);
     }
 
 
@@ -48,9 +68,9 @@ public class PlayerControllerTest
     public void TestFlipGravity_ShouldFlippedFlag()
     {
         Debug.Log("now test");
-        playerController.flipped = false;   // arrange
-        playerController.FlipGravity();     // act
-        Assert.IsTrue(playerController.flipped);    // assert
+        player.flipped = false;   // arrange
+        player.FlipGravity();     // act
+        Assert.IsTrue(player.flipped);    // assert
     }
 
     [Test]
@@ -59,7 +79,7 @@ public class PlayerControllerTest
         Debug.Log("now test");
         transform.position = new Vector3(1, 2, 3);  // arrange
         //float gravityScaleBefore = player.transform.localScale.y;
-        playerController.FlipGravity();     // act
+        player.FlipGravity();     // act
         Assert.AreEqual(player.transform.position, new Vector3(1, 0.4f, 3));    // assert
 
     }
@@ -78,9 +98,9 @@ public class PlayerControllerTest
     {
         grounded = true;        // arrange
         var initialVelocityY = body.velocity.y;
-        playerController.OnJump();      // act
+        player.OnJump();      // act
         Assert.AreNotEqual(initialVelocityY, body.velocity.y);      // assert
-        Assert.AreEqual(playerController.jumpForce, body.velocity.y);
+        Assert.AreEqual(player.jumpForce, body.velocity.y);
     }
 
 
