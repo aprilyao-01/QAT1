@@ -15,8 +15,9 @@ public class PlayerController : MonoBehaviour
     public Transform groundOverlapTopLeft;
     public Transform groundOverlapBottomRight;
     public LayerMask groundLayer;
-    public GameObject gameOverUI;
+    public GameOverUI gameOverUI;
     public TextMeshProUGUI gameOverText;
+    public TextMeshProUGUI gameOverButtonText;
     
     public bool flipped = false;
     private bool grounded = false;
@@ -28,11 +29,13 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer sprite;
 
 
-    public static void FlipPlayers() {
+    public static void FlipPlayers()
+    {
         players.ForEach( FlipGravity );
     }
     
-    public static void FlipGravity(PlayerController p) {
+    public static void FlipGravity(PlayerController p)
+    {
         p.FlipGravity();
     }
     
@@ -93,12 +96,13 @@ public class PlayerController : MonoBehaviour
 
     protected void die()
     {
-        Time.timeScale = 0;
-
-        gameOverUI.SetActive(true);
+        gameOverUI.gameObject.SetActive(true);
+        gameOverUI.failed = true;
         gameOverText.SetText("Game Over");
+        gameOverButtonText.SetText("Try Again");
 
-        Destroy(this.gameObject);
+        Time.timeScale = 0;
+        this.gameObject.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -109,7 +113,8 @@ public class PlayerController : MonoBehaviour
         sprite = GetComponentInChildren<SpriteRenderer>();
         players.Add(this);
 
-        if (flipped){
+        if (flipped)
+        {
             FlipGravity();
             flipped = true;
         }
