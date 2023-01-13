@@ -12,8 +12,8 @@ public class GameOverUI : MonoBehaviour
 {
 
     public bool failed = false;
-    public Scene nextLevel;
-    public Scene mainMenu;
+    public int nextLevel;
+    public int mainMenu;
 
     /// <summary>
     /// Method <c>OnButtonClick</c> called on click of top
@@ -29,7 +29,7 @@ public class GameOverUI : MonoBehaviour
                 SceneManager.LoadScene( SceneManager.GetActiveScene().name );
                 return;
             }
-        SceneManager.LoadScene( nextLevel.name );
+        SceneManager.LoadScene( nextLevel );
     }
 
     /// <summary>
@@ -39,6 +39,6 @@ public class GameOverUI : MonoBehaviour
     /// </summary>
     public void onMenuButtonClick()
     {
-        SceneManager.LoadScene( mainMenu.name );
+        SceneManager.LoadScene( mainMenu );
     }
 }
