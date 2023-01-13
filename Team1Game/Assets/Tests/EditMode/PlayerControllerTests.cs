@@ -40,6 +40,30 @@ public class PlayerControllerTest
     }
 
 
+
+    [Test]
+    public void TestFlipGravity()
+    {
+        Vector3 initialScale = body.transform.localScale;
+        Vector3 initialPosition = player.transform.position;
+        float initialGravityScale = body.gravityScale;
+        float initialJumpForce = player.jumpForce;
+
+        player.FlipGravity();
+
+        Vector3 newScale = body.transform.localScale;
+        Vector3 newPosition = player.transform.position;
+        float newGravityScale = body.gravityScale;
+        float newJumpForce = player.jumpForce;
+
+        Assert.AreNotEqual(initialScale, newScale);
+        Assert.AreNotEqual(initialPosition, newPosition);
+        Assert.AreNotEqual(initialGravityScale, newGravityScale);
+        Assert.AreNotEqual(initialJumpForce, newJumpForce);
+        Assert.IsTrue(player.flipped);
+    }
+
+
     [Test]
     public void TestFlipGravity_ShouldFlippedFlag()
     {
@@ -54,7 +78,11 @@ public class PlayerControllerTest
     {
         Debug.Log("now test");
         transform.position = new Vector3(1, 2, 3);  // arrange
+<<<<<<< HEAD
         float gravityScaleBefore = player.transform.localScale.y;
+=======
+        //float gravityScaleBefore = player.transform.localScale.y;
+>>>>>>> 85253ff (Fix merge conflicts)
         player.FlipGravity();     // act
         Assert.AreEqual(player.transform.position, new Vector3(1, 0.4f, 3));    // assert
 

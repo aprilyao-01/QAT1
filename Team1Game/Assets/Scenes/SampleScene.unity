@@ -455,15 +455,19 @@ Camera:
   orthographic: 1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   orthographic size: 14.6144495
 =======
 =======
 >>>>>>> 6efd510 (Fix merge conflicts)
 <<<<<<< HEAD
+=======
+>>>>>>> 85253ff (Fix merge conflicts)
   orthographic size: 12.8371725
 =======
   orthographic size: 9.481855
 >>>>>>> 224b005 (reconstructe crow, add new 'testable'folder under assets)
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> c348600 (reconstructe crow, add new 'testable'folder under assets)
 =======
@@ -471,6 +475,8 @@ Camera:
   orthographic size: 14.6144495
 >>>>>>> bf3b847 (more tests)
 >>>>>>> 6efd510 (Fix merge conflicts)
+=======
+>>>>>>> 85253ff (Fix merge conflicts)
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
