@@ -135,10 +135,25 @@ public class PlayerControllerTest
     }
 
     [Test]
-    public void OnMove_SetsVelocityX()
+    public void TestDamage()
     {
-        //var inputValue = new InputValue(1f);        // arrange
-        //playerController.OnMove(inputValue);        //act
-        //Assert.AreEqual(playerController.speed, body.velocity.x);       //assert
+        var playerController = new GameObject().AddComponent<PlayerController>();
+
+        playerController.health = 3;
+        int dieCalledCount = 0;
+        playerController.PlayerDie += delegate () { dieCalledCount++; };
+        playerController.Damage(2);
+
+
+        // check that the player's health has been reduced
+        Assert.AreEqual(1, playerController.health);
+
+        playerController.Damage(1);
+        // check that the player's health has been reduced
+        Assert.AreEqual(0, playerController.health);
+
+        // check that the die method has been called
+        Assert.AreEqual(1, dieCalledCount);
     }
+
 }
