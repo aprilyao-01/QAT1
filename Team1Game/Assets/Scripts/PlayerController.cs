@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
 using static System.Math;
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public Transform groundOverlapTopLeft;
     public Transform groundOverlapBottomRight;
     public LayerMask groundLayer;
+    public Slider healthSlider;
     public GameOverUI gameOverUI;
     public TextMeshProUGUI gameOverText;
     public TextMeshProUGUI gameOverButtonText;
@@ -54,6 +56,7 @@ public class PlayerController : MonoBehaviour
     public void Damage(int dmg)
     {
         health -= dmg;
+        healthSlider.value = health;
         if (health <= 0)
         {
             print("ded");

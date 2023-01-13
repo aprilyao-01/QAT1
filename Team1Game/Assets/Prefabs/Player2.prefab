@@ -63,10 +63,50 @@ PrefabInstance:
       propertyPath: m_DefaultActionMap
       value: Player2
       objectReference: {fileID: 0}
+    - target: {fileID: 2635472952743676393, guid: 68560bd411967324d8773ca45a15d1bb, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2635472952743676393, guid: 68560bd411967324d8773ca45a15d1bb, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2635472952743676393, guid: 68560bd411967324d8773ca45a15d1bb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2635472952743676393, guid: 68560bd411967324d8773ca45a15d1bb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -260
+      objectReference: {fileID: 0}
+    - target: {fileID: 4460409270886994483, guid: 68560bd411967324d8773ca45a15d1bb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967082892122510173, guid: 68560bd411967324d8773ca45a15d1bb, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967082892122510173, guid: 68560bd411967324d8773ca45a15d1bb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6749742915671484313, guid: 68560bd411967324d8773ca45a15d1bb, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300020, guid: addd2af175d074643a3b1f29f6c23041, type: 3}
+    - target: {fileID: 7160482198280404803, guid: 68560bd411967324d8773ca45a15d1bb, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160482198280404803, guid: 68560bd411967324d8773ca45a15d1bb, type: 3}
+      propertyPath: m_Color.g
+      value: 0.21176472
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160482198280404803, guid: 68560bd411967324d8773ca45a15d1bb, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9058824
+      objectReference: {fileID: 0}
     - target: {fileID: 8563938858126928489, guid: 68560bd411967324d8773ca45a15d1bb, type: 3}
       propertyPath: m_Controller
       value: 
