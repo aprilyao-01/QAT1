@@ -4,7 +4,8 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-public class PlayerControllTests
+
+public class PlayerControllTest
 {
     // A Test behaves as an ordinary method
     [Test]
