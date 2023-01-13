@@ -19,7 +19,6 @@ public class DoorUpdaterTests
         doorGameObject = new GameObject();
         doorGameObject.AddComponent<SpriteRenderer>();
         doorGameObject.AddComponent<BoxCollider2D>();
-
         updater = new DoorUpdater(doorGameObject, open);
     }
 

@@ -14,18 +14,21 @@ public class CannonTest
 =======
 >>>>>>> 93ead64 (Fix merge conflicts)
 
+
     [SetUp]
     public void SetUp()
     {
         GameObject gameObject = new GameObject();
         cannon = gameObject.AddComponent<Cannon>();
         projectile = Resources.Load<Bullet>("Assets/Scripts/Bullet.cs");
+
         cannon.projectile = projectile;
     }
 
     [TearDown]
     public void TearDown()
     {
+
         UnityEngine.Object.Destroy(cannon);
         UnityEngine.Object.Destroy(projectile);
     }

@@ -34,6 +34,7 @@ public class Lever : MonoBehaviour, IInteractable
     // Called when trigger collider is entered
     void OnTriggerEnter2D(Collider2D col)
     {
+
         Enter(col);
     }
 

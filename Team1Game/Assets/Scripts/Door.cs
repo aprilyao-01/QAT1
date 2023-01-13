@@ -47,6 +47,7 @@ public class Door : MonoBehaviour
 
     SpriteRenderer sprite;
     Collider2D col;
+
     private DoorUpdater updater;
 
     ///<summary>
@@ -56,6 +57,7 @@ public class Door : MonoBehaviour
     /// If open, changes to open sprite and disables collider.
     /// If closed, changes to closed sprite and enables collider.
     ///</summary>
+
     public void Toggle()
     {
         open = !open;

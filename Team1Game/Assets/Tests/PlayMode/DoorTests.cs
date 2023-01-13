@@ -57,10 +57,6 @@ public class DoorTests
 
         UnityEngine.Object.Destroy(door.gameObject);        // clean up door game object
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 93ead64 (Fix merge conflicts)
     }
 
     [UnityTest]
@@ -90,10 +86,6 @@ public class DoorTests
 
         UnityEngine.Object.Destroy(door.gameObject);        // clean up door game object
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 93ead64 (Fix merge conflicts)
     }
 
 }
