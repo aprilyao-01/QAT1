@@ -21,21 +21,40 @@ public class Lever : MonoBehaviour, IInteractable
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        Enter(col);
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        Exit(col);
+    }
+
+
+
+
+    // new add testable
+    public void Enter(Collider2D col)
+    {
         print("triggered");
 
-        if(col.tag == "Player")
+        if (col.tag == "Player")
         {
             col.GetComponentInParent<PlayerController>().SetInteractable(this);
         }
     }
 
-    void OnTriggerExit2D(Collider2D col)
+    public void Exit(Collider2D col)
     {
         print("untriggered");
 
-        if(col.tag == "Player")
+        if (col.tag == "Player")
         {
             col.GetComponentInParent<PlayerController>().ClearInteractable();
         }
+    }
+
+    public void SetSprite(SpriteRenderer newSprite)
+    {
+        sprite = newSprite;
     }
 }

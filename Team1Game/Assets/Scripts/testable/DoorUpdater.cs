@@ -3,23 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class DoorUpdater : MonoBehaviour
+public class DoorUpdater
 {
     private Sprite openSprite;
     private Sprite closedSprite;
     private SpriteRenderer sprite;
+    private GameObject doorGameObject;
     private Collider2D col;
-    public bool isOpen = false;
 
-    public DoorUpdater(bool open)
+    public DoorUpdater(GameObject doorGameObject, bool open)
     {
-        sprite = this.GetComponent<SpriteRenderer>();        
-        col = this.GetComponent<Collider2D>();
+        this.doorGameObject = doorGameObject;
+        sprite = doorGameObject.GetComponent<SpriteRenderer>();
+        col = doorGameObject.GetComponent<Collider2D>();
         if (open)
         {
             sprite.sprite = openSprite;
             col.enabled = false;
         }
+
+        //this.openSprite = openSprite;
+        //this.closedSprite = closedSprite;
+        //this.doorGameObject = doorGameObject;
+        //sprite = doorGameObject.GetComponent<SpriteRenderer>();
+        //col = doorGameObject.GetComponent<Collider2D>();
+        //if (open)
+        //{
+        //    sprite.sprite = openSprite;
+        //    col.enabled = false;
+        //}
+
     }
 
     public void UpdateDoor(bool open)

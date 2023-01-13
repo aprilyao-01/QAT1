@@ -6,18 +6,19 @@ using UnityEngine.TestTools;
 
 public class DoorUpdaterTests
 {
-    private Door door;
+    //private Door door;
     private DoorUpdater updater;
     private Sprite openSprite;
     private Sprite closedSprite;
+    private GameObject doorGameObject;
     public bool open = false;
 
 
     [SetUp]
     public void SetUp()
     {
-        door = new Door();
-        updater = new DoorUpdater(open);
+        doorGameObject = new GameObject();
+        updater = new DoorUpdater(doorGameObject, open);
     }
 
     [TearDown]
@@ -25,15 +26,15 @@ public class DoorUpdaterTests
     {
         openSprite = null;
         closedSprite = null;
-        UnityEngine.Object.DestroyImmediate(updater.gameObject);
+        UnityEngine.Object.DestroyImmediate(doorGameObject);
     }
 
 
     [Test]
     public void TestUpdateDoor_Open()
     {
-        var spriteRenderer = door.GetComponent<SpriteRenderer>();       // arrange
-        var collider = door.GetComponent<Collider2D>();
+        var spriteRenderer = doorGameObject.GetComponent<SpriteRenderer>();       // arrange
+        var collider = doorGameObject.GetComponent<Collider2D>();
 
         updater.UpdateDoor(true);       // act
        
@@ -44,8 +45,8 @@ public class DoorUpdaterTests
     [Test]
     public void TestUpdateDoor_Closed()
     {
-        var spriteRenderer = door.GetComponent<SpriteRenderer>();       // arrange
-        var collider = door.GetComponent<Collider2D>();
+        var spriteRenderer = doorGameObject.GetComponent<SpriteRenderer>();       // arrange
+        var collider = doorGameObject.GetComponent<Collider2D>();
 
         updater.UpdateDoor(false);      // act
         

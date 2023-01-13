@@ -116,6 +116,19 @@ public class PlayerController : MonoBehaviour
     }
 
 
+
+    // new add testable
+    public void setInteractable(IInteractable isInteract)
+    {
+        interactable = isInteract;
+    }
+
+    public IInteractable GetInteractable()
+    {
+        return interactable;
+    }
+
+
 }
 
 //public class PlayerController
