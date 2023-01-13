@@ -23,7 +23,9 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        if (faceLeft) speed *= -1;
+
+
+        if (faceLeft) speed *= -1;  // Move left if facing left
 
         body = GetComponent<Rigidbody2D>();
 
