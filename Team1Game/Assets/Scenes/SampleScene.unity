@@ -453,7 +453,15 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
+<<<<<<< HEAD
   orthographic size: 14.6144495
+=======
+<<<<<<< HEAD
+  orthographic size: 12.8371725
+=======
+  orthographic size: 9.481855
+>>>>>>> 224b005 (reconstructe crow, add new 'testable'folder under assets)
+>>>>>>> c348600 (reconstructe crow, add new 'testable'folder under assets)
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
