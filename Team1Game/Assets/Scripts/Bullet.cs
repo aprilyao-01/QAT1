@@ -23,25 +23,23 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        // Move left if facing left
-        if(faceLeft) speed *= -1;
+        if (faceLeft) speed *= -1;
 
         body = GetComponent<Rigidbody2D>();
+
+        print("Bullet");
+
+        _bulletMovement = new BulletMovement(overlapFront, speed, body);
     }
 
     // Update is called once per frame
     void Update()
     {
-        // assign constant velocity
-        Vector3 vel = new Vector3();
-        vel.x += speed;
-        body.velocity = vel;
-        
-        // check frontal collisions
-        bool frontCollision = Physics2D.OverlapPoint(overlapFront.position);
-
-        // if collided, destroy the bullet
-        if(frontCollision) Destroy(this.gameObject);
+        bool frontCollision = _bulletMovement.Move();
+        if (frontCollision)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
 
