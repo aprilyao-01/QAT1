@@ -57,6 +57,7 @@ public class DoorTests
 
         UnityEngine.Object.Destroy(door.gameObject);        // clean up door game object
 
+
     }
 
     [UnityTest]
@@ -85,6 +86,7 @@ public class DoorTests
         Assert.IsFalse(collider.enabled);
 
         UnityEngine.Object.Destroy(door.gameObject);        // clean up door game object
+
 
     }
 
