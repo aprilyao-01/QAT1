@@ -9,7 +9,10 @@ public class CannonTest
 {
     private Cannon cannon;
     private Bullet projectile;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 93ead64 (Fix merge conflicts)
 
     [SetUp]
     public void SetUp()

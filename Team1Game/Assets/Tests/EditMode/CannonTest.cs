@@ -8,11 +8,19 @@ public class CannonTest
 {
     private Cannon cannon;
     private Bullet projectile;
+<<<<<<< HEAD
 
 
     [SetUp]
     public void SetUp()
     {        cannon = new GameObject().AddComponent<Cannon>();
+=======
+
+    [SetUp]
+    public void SetUp()
+    {
+        cannon = new GameObject().AddComponent<Cannon>();
+>>>>>>> 93ead64 (Fix merge conflicts)
         projectile = new GameObject().AddComponent<Bullet>();
         cannon.projectile = projectile;
     }
@@ -20,7 +28,10 @@ public class CannonTest
     [TearDown]
     public void TearDown()
     {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 93ead64 (Fix merge conflicts)
         Object.DestroyImmediate(cannon);
         Object.DestroyImmediate(projectile);
     }
@@ -28,7 +39,11 @@ public class CannonTest
     [Test]
     public void TestFire()
     {
+<<<<<<< HEAD
         cannon.Fire();
+=======
+        cannon.fire();
+>>>>>>> 93ead64 (Fix merge conflicts)
         Assert.IsNotNull(cannon.projectile);
     }
 }

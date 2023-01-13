@@ -19,7 +19,11 @@ public class LeverTests
         doors[0].open = false;
         doors[1].open = false;
 
+<<<<<<< HEAD
         //lever.Interact();                // act
+=======
+        lever.Interact();                // act
+>>>>>>> 93ead64 (Fix merge conflicts)
         yield return new WaitForSeconds(1);
 
         Assert.AreEqual(true, doors[0].open);               // assert

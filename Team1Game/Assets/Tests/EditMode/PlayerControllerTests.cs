@@ -119,7 +119,11 @@ public class PlayerControllerTest
         playerController.Damage(2);
 
 
+<<<<<<< HEAD
         //check that the player's health has been reduced
+=======
+        // check that the player's health has been reduced
+>>>>>>> 93ead64 (Fix merge conflicts)
         Assert.AreEqual(1, playerController.health);
 
         playerController.Damage(1);
