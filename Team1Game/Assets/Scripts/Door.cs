@@ -6,6 +6,39 @@ using UnityEngine;
 /// Class <c>Door</c> derives from <c>MonoBehaviour</c>.
 /// Handles behaviour of door object / prefab.
 ///</summary>
+//public class Door : MonoBehaviour
+//{
+
+//    public Sprite openSprite;
+//    public Sprite closedSprite;
+//    public bool open = false;
+
+//    SpriteRenderer sprite;
+//    Collider2D col;
+
+//    public void Toggle()
+//    {
+//        open = !open;
+//        if(open) sprite.sprite = openSprite;
+//        else sprite.sprite = closedSprite;
+//        col.enabled = !col.enabled;
+//    }
+
+//    // Start is called before the first frame update
+//    void Start()
+//    {
+//        sprite = GetComponent<SpriteRenderer>();
+//        col = GetComponent<Collider2D>();
+
+//        if(open)
+//        {
+//            sprite.sprite = openSprite;
+//            col.enabled = false;
+//        }
+//    }
+
+//}
+
 public class Door : MonoBehaviour
 {
     public Sprite openSprite;
