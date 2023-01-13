@@ -126,5 +126,11 @@ public class PlayerControllerTest
         Assert.AreEqual(1, dieCalledCount);
     }
 
-
+    [Test]
+    public void OnMove_SetsVelocityX()
+    {
+        //var inputValue = new InputValue(1f);        // arrange
+        //playerController.OnMove(inputValue);        //act
+        //Assert.AreEqual(playerController.speed, body.velocity.x);       //assert
+    }
 }
