@@ -14,7 +14,6 @@ public class Door : MonoBehaviour
 
     SpriteRenderer sprite;
     Collider2D col;
-
     private DoorUpdater updater;
 
     ///<summary>
