@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crow : MonoBehaviour
+public class Crow : ContactDamage
 {
 
     public Transform overlapFront;
