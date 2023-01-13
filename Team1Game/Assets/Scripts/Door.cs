@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+///<summary>
+/// Class <c>Door</c> derives from <c>MonoBehaviour</c>.
+/// Handles behaviour of door object / prefab.
+///</summary>
 public class Door : MonoBehaviour
 {
 
@@ -12,6 +16,13 @@ public class Door : MonoBehaviour
     SpriteRenderer sprite;
     Collider2D col;
 
+    ///<summary>
+    /// Method <c>Toggle</c> called when connected Lever is
+    /// interacted with.
+    /// Opens / closes the door.
+    /// If open, changes to open sprite and disables collider.
+    /// If closed, changes to closed sprite and enables collider.
+    ///</summary>
     public void Toggle()
     {
         open = !open;
