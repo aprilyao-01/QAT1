@@ -10,7 +10,6 @@ public class DoorUpdaterTests
     private Sprite openSprite;
     private Sprite closedSprite;
     private GameObject doorGameObject;
-
     public bool open = false;
 
 
@@ -42,6 +41,7 @@ public class DoorUpdaterTests
        
         Assert.AreEqual(spriteRenderer.sprite, openSprite);     // assert
         Assert.IsFalse(doorGameObject.GetComponent<BoxCollider2D>().enabled);
+
     }
 
     [Test]
@@ -49,10 +49,12 @@ public class DoorUpdaterTests
     {
         var spriteRenderer = doorGameObject.GetComponent<SpriteRenderer>();       // arrange
 
+
         updater.UpdateDoor(false);      // act
         
         Assert.AreEqual(spriteRenderer.sprite, closedSprite);       // assert
         Assert.IsFalse(doorGameObject.GetComponent<BoxCollider2D>().enabled);
+
     }
 }
 

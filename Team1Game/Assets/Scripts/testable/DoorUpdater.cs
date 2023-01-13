@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class DoorUpdater
+
 {
     private Sprite openSprite;
     private Sprite closedSprite;
@@ -16,6 +17,7 @@ public class DoorUpdater
         this.doorGameObject = doorGameObject;
         sprite = doorGameObject.GetComponent<SpriteRenderer>();
         col = doorGameObject.GetComponent<BoxCollider2D>();
+
         if (open)
         {
             sprite.sprite = openSprite;
