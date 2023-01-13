@@ -36,7 +36,6 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer sprite;
     public Action PlayerDie;
 
-
     ///<summary>
     /// Static Method <c>FlipPlayers</c> flips gravity for all players
     ///</summary>

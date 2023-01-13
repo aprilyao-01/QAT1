@@ -12,8 +12,8 @@ public class GameOverUI : MonoBehaviour
 {
 
     public bool failed = false;
-    public int nextLevel;
-    public int mainMenu;
+    public Scene nextLevel;
+    public Scene mainMenu;
 
     /// <summary>
     /// Method <c>OnButtonClick</c> called on click of top
