@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class DoorUpdater
-
 {
     private Sprite openSprite;
     private Sprite closedSprite;

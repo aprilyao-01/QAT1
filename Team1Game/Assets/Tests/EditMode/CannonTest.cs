@@ -12,8 +12,7 @@ public class CannonTest
 
     [SetUp]
     public void SetUp()
-    {
-        cannon = new GameObject().AddComponent<Cannon>();
+    {        cannon = new GameObject().AddComponent<Cannon>();
         projectile = new GameObject().AddComponent<Bullet>();
         cannon.projectile = projectile;
     }
