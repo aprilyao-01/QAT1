@@ -32,9 +32,9 @@ public class CannonTest
     [UnityTest]
     public IEnumerator TestFire()
     {
-        // Test that the fire method instantiates a new bullet
+        //// Test that the fire method instantiates a new bullet
         yield return new WaitForSeconds(1);
-        cannon.fire();
+        cannon.Fire();
         yield return new WaitForSeconds(1);
         Assert.IsNotNull(cannon.projectile);
     }

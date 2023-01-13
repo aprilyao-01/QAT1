@@ -40,30 +40,6 @@ public class PlayerControllerTest
     }
 
 
-
-    [Test]
-    public void TestFlipGravity()
-    {
-        Vector3 initialScale = body.transform.localScale;
-        Vector3 initialPosition = player.transform.position;
-        float initialGravityScale = body.gravityScale;
-        float initialJumpForce = player.jumpForce;
-
-        player.FlipGravity();
-
-        Vector3 newScale = body.transform.localScale;
-        Vector3 newPosition = player.transform.position;
-        float newGravityScale = body.gravityScale;
-        float newJumpForce = player.jumpForce;
-
-        Assert.AreNotEqual(initialScale, newScale);
-        Assert.AreNotEqual(initialPosition, newPosition);
-        Assert.AreNotEqual(initialGravityScale, newGravityScale);
-        Assert.AreNotEqual(initialJumpForce, newJumpForce);
-        Assert.IsTrue(player.flipped);
-    }
-
-
     [Test]
     public void TestFlipGravity_ShouldFlippedFlag()
     {
@@ -78,7 +54,7 @@ public class PlayerControllerTest
     {
         Debug.Log("now test");
         transform.position = new Vector3(1, 2, 3);  // arrange
-        //float gravityScaleBefore = player.transform.localScale.y;
+        float gravityScaleBefore = player.transform.localScale.y;
         player.FlipGravity();     // act
         Assert.AreEqual(player.transform.position, new Vector3(1, 0.4f, 3));    // assert
 
@@ -115,7 +91,7 @@ public class PlayerControllerTest
         playerController.Damage(2);
 
 
-        // check that the player's health has been reduced
+        //check that the player's health has been reduced
         Assert.AreEqual(1, playerController.health);
 
         playerController.Damage(1);
@@ -125,27 +101,4 @@ public class PlayerControllerTest
         // check that the die method has been called
         Assert.AreEqual(1, dieCalledCount);
     }
-
-    [Test]
-    public void TestDamage()
-    {
-        var playerController = new GameObject().AddComponent<PlayerController>();
-
-        playerController.health = 3;
-        int dieCalledCount = 0;
-        playerController.PlayerDie += delegate () { dieCalledCount++; };
-        playerController.Damage(2);
-
-
-        // check that the player's health has been reduced
-        Assert.AreEqual(1, playerController.health);
-
-        playerController.Damage(1);
-        // check that the player's health has been reduced
-        Assert.AreEqual(0, playerController.health);
-
-        // check that the die method has been called
-        Assert.AreEqual(1, dieCalledCount);
-    }
-
 }

@@ -29,7 +29,7 @@ public class CannonTest
     [Test]
     public void TestFire()
     {
-        cannon.fire();
+        cannon.Fire();
         Assert.IsNotNull(cannon.projectile);
     }
 }

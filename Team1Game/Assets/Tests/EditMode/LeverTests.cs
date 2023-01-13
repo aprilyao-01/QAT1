@@ -17,12 +17,17 @@ public class LeverTests
     public void SetUp()
     {
         // Create objects for the test
-        lever = new Lever();
-        doors = new Door[2];
-        doors[0] = new Door();
-        doors[1] = new Door();
-        sprite = new SpriteRenderer();
-        player = new PlayerController();
+        GameObject leverObject = new GameObject();
+        leverObject.AddComponent<SpriteRenderer>();
+        lever = leverObject.AddComponent<Lever>();
+
+        for (int i = 0; i < 2; i++)
+        {
+            doors[i] = new GameObject().AddComponent<Door>();
+        }
+        doors[0] = leverObject.AddComponent<Door>();
+        doors[1] = leverObject.AddComponent<Door>();
+        player = new GameObject().AddComponent<PlayerController>();
 
         // Add the doors to the lever's doors array
         lever.doors = doors;

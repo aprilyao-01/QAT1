@@ -21,7 +21,7 @@ public class GravitySwitch : MonoBehaviour, IInteractable
     }
     
     // Called when trigger collider is entered
-    void OnTriggerEnter2D(Collider2D col)
+    public void OnTriggerEnter2D(Collider2D col)
     {
         // if collider is player, set this as its active interactable
         if(col.tag == "Player")
