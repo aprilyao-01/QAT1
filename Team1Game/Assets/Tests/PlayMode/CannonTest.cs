@@ -8,22 +8,20 @@ using UnityEngine.TestTools;
 public class CannonTest
 {
     private Cannon cannon;
-    private GameObject projectile;
+    private Bullet projectile;
 
     [SetUp]
     public void SetUp()
     {
-        // Create a new Cannon object and set its projectile property
         GameObject gameObject = new GameObject();
         cannon = gameObject.AddComponent<Cannon>();
-        projectile = new GameObject();
+        projectile = Resources.Load<Bullet>("Assets/Scripts/Bullet.cs");
         cannon.projectile = projectile;
     }
 
     [TearDown]
     public void TearDown()
     {
-        // Destroy the Cannon and projectile objects
         UnityEngine.Object.Destroy(cannon);
         UnityEngine.Object.Destroy(projectile);
     }

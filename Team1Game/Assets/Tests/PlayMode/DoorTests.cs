@@ -6,78 +6,86 @@ using UnityEngine.TestTools;
 
 public class DoorTests
 {
+    //private Door door;
+
+
+    //[UnitySetUp]
+    //public void SetUp()
+    //{
+    //    door = new GameObject().AddComponent<Door>();
+
+    //    door.gameObject.AddComponent<SpriteRenderer>();      // add components to door
+    //    door.gameObject.AddComponent<BoxCollider2D>();
+
+    //    door.openSprite = Resources.Load<Sprite>("OpenSprite");     // assign sprites
+    //    door.closedSprite = Resources.Load<Sprite>("ClosedSprite");
+    //}
+
+
+    //[UnityTearDown]
+    //public void TearDown()
+    //{
+    //    UnityEngine.Object.Destroy(door.gameObject);        // clean up door game object
+    //}
+
+
+
     [UnityTest]
     public IEnumerator TestToggle_OpenToClosed()
     {
-        // Create new door game object
         var door = new GameObject().AddComponent<Door>();
 
-        // Assign open and closed sprites
+        door.gameObject.AddComponent<SpriteRenderer>();
+        door.gameObject.AddComponent<BoxCollider2D>();
+
         door.openSprite = Resources.Load<Sprite>("OpenSprite");
         door.closedSprite = Resources.Load<Sprite>("ClosedSprite");
 
-        // Set door to open
         door.open = true;
+        yield return null;              // wait for a frame
 
-        // Wait for a frame to ensure door is set up correctly
-        yield return null;
-
-        // Toggle door
         door.Toggle();
+        yield return null;      // wait for a frame
 
-        // Wait for a frame to ensure door is updated correctly
-        yield return null;
+        Assert.IsFalse(door.open);              // check that door is now closed
 
-        // Check that door is now closed
-        Assert.IsFalse(door.open);
-
-        // Check that sprite is set to closed sprite
-        var spriteRenderer = door.GetComponent<SpriteRenderer>();
+        var spriteRenderer = door.GetComponent<SpriteRenderer>();           // check that sprite is set to closed sprite
         Assert.AreEqual(door.closedSprite, spriteRenderer.sprite);
 
-        // Check that collider is now enabled
-        var collider = door.GetComponent<Collider2D>();
+        var collider = door.GetComponent<BoxCollider2D>();        // check that collider is now enabled
         Assert.IsTrue(collider.enabled);
 
-        // Clean up door game object
-        UnityEngine.Object.Destroy(door.gameObject);
+        UnityEngine.Object.Destroy(door.gameObject);        // clean up door game object
+
     }
 
     [UnityTest]
     public IEnumerator TestToggle_ClosedToOpen()
     {
-        // Create new door game object
         var door = new GameObject().AddComponent<Door>();
 
-        // Assign open and closed sprites
+        door.gameObject.AddComponent<SpriteRenderer>();
+        door.gameObject.AddComponent<BoxCollider2D>();
+
         door.openSprite = Resources.Load<Sprite>("OpenSprite");
         door.closedSprite = Resources.Load<Sprite>("ClosedSprite");
 
-        // Set door to closed
         door.open = false;
-
-        // Wait for a frame to ensure door is set up correctly
         yield return null;
 
-        // Toggle door
         door.Toggle();
-
-        // Wait for a frame to ensure door is updated correctly
         yield return null;
 
-        // Check that door is now open
-        Assert.IsTrue(door.open);
+        Assert.IsTrue(door.open);           // check that door is now open
 
-        // Check that sprite is set to open sprite
-        var spriteRenderer = door.GetComponent<SpriteRenderer>();
+        var spriteRenderer = door.GetComponent<SpriteRenderer>();        // check that sprite is set to open sprite
         Assert.AreEqual(door.openSprite, spriteRenderer.sprite);
 
-        // Check that collider is now disabled
-        var collider = door.GetComponent<Collider2D>();
+        var collider = door.GetComponent<BoxCollider2D>();        // check that collider is now disabled
         Assert.IsFalse(collider.enabled);
 
-        // Clean up door game object
-        UnityEngine.Object.Destroy(door.gameObject);
+        UnityEngine.Object.Destroy(door.gameObject);        // clean up door game object
+
     }
 
 }

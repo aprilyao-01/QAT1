@@ -5,7 +5,7 @@ using UnityEngine;
 public class Cannon : MonoBehaviour
 {
 
-    public GameObject projectile;
+    public Bullet projectile;
     public float fireInterval = 0.1f;
     public bool faceLeft = false;
 
@@ -23,7 +23,6 @@ public class Cannon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         timeRemaining = fireInterval;
     }
 

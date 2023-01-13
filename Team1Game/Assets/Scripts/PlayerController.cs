@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
 using static System.Math;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D body;
     Animator animator;
     SpriteRenderer sprite;
+    public Action PlayerDie;
+
 
 
     public static void FlipPlayers()
@@ -99,6 +102,7 @@ public class PlayerController : MonoBehaviour
 
     protected void die()
     {
+        PlayerDie?.Invoke();
         gameOverUI.gameObject.SetActive(true);
         gameOverUI.failed = true;
         gameOverText.SetText("Game Over");

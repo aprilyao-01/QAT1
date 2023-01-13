@@ -389,6 +389,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 742724dcd681a8741bb3ec8935f03398, type: 3}
+--- !u!114 &479703124 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6347156584963305030, guid: 742724dcd681a8741bb3ec8935f03398, type: 3}
+  m_PrefabInstance: {fileID: 479703123}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d96e6914c17b3174797410e2fa07c964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,7 +453,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.74
+  orthographic size: 14.6144495
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -466,7 +477,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: 0, z: -10}
+  m_LocalPosition: {x: 15.4, y: -3.8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -976,6 +987,10 @@ PrefabInstance:
       propertyPath: faceLeft
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4042668268729236342, guid: 7abc6e0e2d26888489e3c7693bf936da, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 479703124}
     - target: {fileID: 8794091899873339276, guid: 7abc6e0e2d26888489e3c7693bf936da, type: 3}
       propertyPath: m_Name
       value: Cannon

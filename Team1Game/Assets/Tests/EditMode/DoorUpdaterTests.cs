@@ -6,11 +6,11 @@ using UnityEngine.TestTools;
 
 public class DoorUpdaterTests
 {
-    //private Door door;
     private DoorUpdater updater;
     private Sprite openSprite;
     private Sprite closedSprite;
     private GameObject doorGameObject;
+
     public bool open = false;
 
 
@@ -18,6 +18,9 @@ public class DoorUpdaterTests
     public void SetUp()
     {
         doorGameObject = new GameObject();
+        doorGameObject.AddComponent<SpriteRenderer>();
+        doorGameObject.AddComponent<BoxCollider2D>();
+
         updater = new DoorUpdater(doorGameObject, open);
     }
 
@@ -34,24 +37,22 @@ public class DoorUpdaterTests
     public void TestUpdateDoor_Open()
     {
         var spriteRenderer = doorGameObject.GetComponent<SpriteRenderer>();       // arrange
-        var collider = doorGameObject.GetComponent<Collider2D>();
 
         updater.UpdateDoor(true);       // act
        
         Assert.AreEqual(spriteRenderer.sprite, openSprite);     // assert
-        Assert.IsFalse(collider.enabled);
+        Assert.IsFalse(doorGameObject.GetComponent<BoxCollider2D>().enabled);
     }
 
     [Test]
     public void TestUpdateDoor_Closed()
     {
         var spriteRenderer = doorGameObject.GetComponent<SpriteRenderer>();       // arrange
-        var collider = doorGameObject.GetComponent<Collider2D>();
 
         updater.UpdateDoor(false);      // act
         
         Assert.AreEqual(spriteRenderer.sprite, closedSprite);       // assert
-        Assert.IsTrue(collider.enabled);
+        Assert.IsFalse(doorGameObject.GetComponent<BoxCollider2D>().enabled);
     }
 }
 
