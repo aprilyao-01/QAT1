@@ -133,4 +133,12 @@ public class PlayerControllerTest
         // check that the die method has been called
         Assert.AreEqual(1, dieCalledCount);
     }
+
+    [Test]
+    public void OnMove_SetsVelocityX()
+    {
+        //var inputValue = new InputValue(1f);        // arrange
+        //playerController.OnMove(inputValue);        //act
+        //Assert.AreEqual(playerController.speed, body.velocity.x);       //assert
+    }
 }
