@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class <c>Cannon</c> derives from <c>MonoBehaviour</c>.
+/// Handles behaviour of Cannon enemy / prefab.
+/// </summary>
 public class Cannon : MonoBehaviour
 {
 
@@ -11,7 +15,11 @@ public class Cannon : MonoBehaviour
 
     protected float timeRemaining;
 
-    public void fire()
+    /// <summary>
+    /// Method <c>Fire</c> called after every fire interval.
+    /// Instantiates a Bullet prefab.
+    /// </summary>
+    public void Fire()
     {
         var bullet = Instantiate(projectile, transform);
         bullet.GetComponent<Bullet>().faceLeft = faceLeft;
@@ -30,7 +38,7 @@ public class Cannon : MonoBehaviour
     void Update()
     {
         timeRemaining -= Time.deltaTime;
-        if(timeRemaining <= 0) fire();
+        if(timeRemaining <= 0) Fire();
     }
 
 }

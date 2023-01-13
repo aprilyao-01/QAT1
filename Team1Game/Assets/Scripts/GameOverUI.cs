@@ -3,12 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+/// <summary>
+/// Class <c>GameOverUI</c> derives from <c>MonoBehaviour</c>.
+/// Handles button input on gameover / level complete menu
+/// </summary>
 public class GameOverUI : MonoBehaviour
 {
 
     public bool failed = false;
     public Scene nextLevel;
     public Scene mainMenu;
+
+    /// <summary>
+    /// Method <c>OnButtonClick</c> called on click of top
+    /// button in menu.
+    /// Reloads current scene, if players failed to complete
+    /// the level.
+    /// Loads next level, if successfully completed.
+    /// </summary>
     public void OnButtonClick()
     {
         if(failed)
@@ -19,6 +32,11 @@ public class GameOverUI : MonoBehaviour
         SceneManager.LoadScene( nextLevel.name );
     }
 
+    /// <summary>
+    /// Method <c>OnMenuButtonClick</c> called on click of main
+    /// menu button.
+    /// Loads the main menu scene.
+    /// </summary>
     public void onMenuButtonClick()
     {
         SceneManager.LoadScene( mainMenu.name );

@@ -7,6 +7,10 @@ using TMPro;
 using static System.Math;
 using System;
 
+/// <summary>
+/// Class <c>PlayerController</c>, derives from <c>MonoBehaviour</c>.
+/// Handles all player actions.
+/// </summary>
 public class PlayerController : MonoBehaviour
 {
 
@@ -33,17 +37,27 @@ public class PlayerController : MonoBehaviour
     public Action PlayerDie;
 
 
-
+    ///<summary>
+    /// Static Method <c>FlipPlayers</c> flips gravity for all players
+    ///</summary>
     public static void FlipPlayers()
     {
         players.ForEach( FlipGravity );
     }
     
+    ///<summary>
+    /// Static Method <c>FlipPlayers</c> flips gravity for specified player.
+    /// Parameter <param>p</param> PlayerController component for player
+    /// who's gravity to flip.
+    ///</summary>
     public static void FlipGravity(PlayerController p)
     {
         p.FlipGravity();
     }
     
+    ///<summary>
+    /// Method <c>FlipGravity</c> flips gravity for player.
+    ///</summary>
     public void FlipGravity()
     {
         Vector3 s = body.transform.localScale;
@@ -56,6 +70,9 @@ public class PlayerController : MonoBehaviour
         flipped = !flipped;
     }
     
+    ///<summary>
+    /// Method <c>Damage</c> deals <param>dmg</param> damage to player.
+    ///</summary>
     public void Damage(int dmg)
     {
         health -= dmg;
@@ -67,21 +84,40 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    ///<summary>
+    /// Method <c>SetInteractable</c> sets current <c>IInteractable</c>
+    /// <param>i</param> with which player can interact with,
+    /// upon pressing the interact key
+    /// </summary>
     public void SetInteractable( IInteractable i )
     {
         interactable = i;
     }
 
+    ///<summary>
+    /// Method <c>ClearInteractable</c> clears current <c>IInteractable</c>
+    /// with which player can interact with, ensuring that pressing the 
+    /// interact key does nothing.
+    ///</summary>
     public void ClearInteractable() 
     {
         interactable = null;
     }
 
+    ///<summary>
+    /// Method <c>OnInteract</c> called on press of interact button.
+    /// calls <c>IInteractable.Interact()</c> on currently accessible
+    /// <c>IInteractable</c>
+    ///</summary>
     public void OnInteract()
     {
         if (interactable != null) interactable.Interact();
     }
 
+    ///<summary>
+    /// Method <c>OnJump</c> called on press of jump button.
+    /// Applies positive y velocity, if player is grounded.
+    ///</summary>
     public void OnJump()
     {
         // print("jump");
@@ -91,6 +127,12 @@ public class PlayerController : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// Method <c>OnMove</c> called on press of a directional key.
+    /// Parameter <param>input</param> is a float passed from the
+    /// input controller, specifying movement axis value.
+    /// Makes player move left and right.
+    /// </summary>
     public void OnMove( InputValue input )
     {
         // print("moving");
@@ -100,6 +142,11 @@ public class PlayerController : MonoBehaviour
         body.velocity = vel;
     }
 
+    /// <summary>
+    /// Method <c>die</c> called when player health reaches 0.
+    /// Destroys player object, pauses game and displays game over
+    /// menu
+    /// </summary>
     protected void die()
     {
         PlayerDie?.Invoke();
@@ -131,7 +178,10 @@ public class PlayerController : MonoBehaviour
     // Fixed Update is called once per fixed interval
     void FixedUpdate()
     {
+        // check overlap area at players feet to see if grounded
         grounded = Physics2D.OverlapArea(groundOverlapTopLeft.position, groundOverlapBottomRight.position, groundLayer);
+        
+        // set animator parameters
         animator.SetBool("grounded", grounded);
         animator.SetFloat("velocityX", Abs(body.velocity.x));
     }
