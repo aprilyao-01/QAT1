@@ -10,6 +10,7 @@ public class DoorUpdaterTests
     private Sprite openSprite;
     private Sprite closedSprite;
     private GameObject doorGameObject;
+
     public bool open = false;
 
 
