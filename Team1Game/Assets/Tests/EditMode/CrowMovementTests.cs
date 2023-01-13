@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+using UnityEngine.UIElements;
 
 public class CrowMovementTests
 {
@@ -40,7 +41,7 @@ public class CrowMovementTests
         var scaleBefore = body.transform.localScale;        // arrange
         var velocityBefore = body.velocity;
 
-        crowMovement.Move();        // act
+        crowMovement.Move(false);        // act
 
         Assert.AreEqual(scaleBefore, body.transform.localScale);    // assert
         Assert.AreEqual(velocityBefore, body.velocity);
@@ -58,13 +59,11 @@ public class CrowMovementTests
     public void TestMove_VelocityChanged()
     {
         var scaleBefore = body.transform.localScale;    // arrange
-        scaleBefore.x *= -1;
-        var scaleExpect = scaleBefore;
-        body.velocity = new Vector3(5, 0);
+        body.velocity = new Vector3(5, 0, 0);
 
         crowMovement.Move(true);        // act
 
-        Assert.AreEqual(scaleExpect, body.transform.localScale);        // assert
+        Assert.AreEqual(scaleBefore.x * -1, body.transform.localScale.x);        // assert
         Assert.AreEqual(-5, body.velocity.x);
     }
 
@@ -79,5 +78,4 @@ public class CrowMovementTests
         Assert.AreEqual(velocityBefore, body.velocity);     // asssert
         Assert.AreEqual(2, body.transform.localScale.x);
     }
-
 }

@@ -11,7 +11,7 @@ public interface ICrowMovement
 
 public class CrowMovement: ICrowMovement
 {
-    private Transform overlapFront;
+    public Transform overlapFront;
     public float speed;
     public Rigidbody2D body;
 
@@ -37,7 +37,7 @@ public class CrowMovement: ICrowMovement
         {
             frontCollision = Physics2D.OverlapPoint(overlapFront.position);
         }
-        Debug.Log(frontCollision);
+        //Debug.Log(frontCollision);
         if (frontCollision)
         {
             Vector3 s = body.transform.localScale;
