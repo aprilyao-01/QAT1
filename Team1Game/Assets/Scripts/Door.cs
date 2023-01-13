@@ -8,8 +8,13 @@ using UnityEngine;
 ///</summary>
 public class Door : MonoBehaviour
 {
+    public Sprite openSprite;
+    public Sprite closedSprite;
     public bool open = false;
-    GameObject doorGameObject;
+
+    SpriteRenderer sprite;
+    Collider2D col;
+
     private DoorUpdater updater;
 
     ///<summary>
@@ -28,6 +33,7 @@ public class Door : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        updater = new DoorUpdater(open);
+        //updater = new DoorUpdater(open,);
+        updater = new DoorUpdater(gameObject, open);
     }
 }

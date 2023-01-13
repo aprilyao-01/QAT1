@@ -22,6 +22,18 @@ public class DoorUpdater
             sprite.sprite = openSprite;
             col.enabled = false;
         }
+
+        //this.openSprite = openSprite;
+        //this.closedSprite = closedSprite;
+        //this.doorGameObject = doorGameObject;
+        //sprite = doorGameObject.GetComponent<SpriteRenderer>();
+        //col = doorGameObject.GetComponent<Collider2D>();
+        //if (open)
+        //{
+        //    sprite.sprite = openSprite;
+        //    col.enabled = false;
+        //}
+
     }
 
     public void UpdateDoor(bool open)
